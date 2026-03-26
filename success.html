@@ -35,5 +35,16 @@
     Your browser does not support the video tag.
   </video>
 
+<button onclick="enableSound()">▶ Enable Sound</button>
+
+<script>
+  function enableSound() {
+    const video = document.getElementById("victoryVideo");
+    video.muted = false;
+    video.volume = 1.0;
+    video.play();
+  }
+</script>
+
 </body>
 </html>
