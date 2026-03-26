@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GrinchAI Terminal</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #00ff66;
+      font-family: "Courier New", Courier, monospace;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .terminal {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+
+    .prompt {
+      margin-top: 20px;
+    }
+
+    input[type="text"] {
+      background-color: #000;
+      color: #00ff66;
+      border: none;
+      border-bottom: 1px solid #00ff66;
+      font-family: inherit;
+      font-size: 1em;
+      width: 100%;
+      outline: none;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      animation: blink 1s steps(1) infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .error {
+      color: #ff3333;
+      margin-top: 15px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal">
+    <h1>Welcome to GrinchAI</h1>
+
+    <p>Initializing system...</p>
+    <p>Awaiting user input.</p>
+
+    <div class="prompt">
+      <span>&gt; ENTER PHRASE: </span>
+      <input type="text" id="userInput" autofocus />
+      <span class="cursor">█</span>
+    </div>
+
+    <div class="error" id="error">
+      ACCESS DENIED — Invalid input.
+    </div>
+  </div>
+
+  <script>
+    const input = document.getElementById("userInput");
+    const error = document.getElementById("error");
+
+    input.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        const value = input.value.toLowerCase();
+
+        if (value.includes("beach")) {
+          window.location.href = "success.html";
+        } else {
+          error.style.display = "block";
+          input.value = "";
+        }
+      }
+    });
+  </script>
+</body>
+</html>
