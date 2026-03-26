@@ -9,18 +9,33 @@
       color: #00ff66;
       font-family: "Courier New", Courier, monospace;
       margin: 0;
-      padding: 40px;
+      padding: 20px;
       text-align: center;
     }
 
     h1 {
       font-size: 2em;
-      margin-bottom: 30px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      background-color: #000;
+      color: #00ff66;
+      border: 1px solid #00ff66;
+      padding: 10px 20px;
+      font-family: inherit;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    button:hover {
+      background-color: #003300;
     }
 
     video {
-      width: 80%;
+      width: 100%;
       max-width: 640px;
+      max-height: 60vh; /* keeps it from falling off smaller screens */
       border: 2px solid #00ff66;
     }
   </style>
@@ -29,22 +44,25 @@
 
   <h1>Spring Break is Saved!</h1>
 
-  <!-- Replace VIDEO_URL_HERE with your video link -->
-  <video autoplay loop muted playsinline>
-    <source src="GrinchAI_beach.mp4" type="video/mp4">
+  <!-- Audio enable button now at the TOP -->
+  <button onclick="enableSound()">▶ ENABLE AUDIO</button>
+
+  <br>
+
+  <!-- Replace with your actual video file -->
+  <video id="victoryVideo" autoplay loop muted playsinline>
+    YOUR_VIDEO.mp4
     Your browser does not support the video tag.
   </video>
 
-<button onclick="enableSound()">▶ Enable Sound</button>
-
-<script>
-  function enableSound() {
-    const video = document.getElementById("victoryVideo");
-    video.muted = false;
-    video.volume = 1.0;
-    video.play();
-  }
-</script>
+  <script>
+    function enableSound() {
+      const video = document.getElementById("victoryVideo");
+      video.muted = false;
+      video.volume = 1.0;
+      video.play();
+    }
+  </script>
 
 </body>
 </html>
